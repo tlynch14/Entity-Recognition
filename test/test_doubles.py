@@ -6,11 +6,11 @@ class NerModelTestDouble:
     def __init__(self, model):
         self.model = model
 
-    def returns_doc_entities(self, entities):
-        self.entities = entities
+    def returns_doc_ents(self, ents):
+        self.ents = ents
 
-    def __call__(self, sentence):
-        return DocTestDouble(sentence, self.entities)
+    def __call__(self, sent):
+        return DocTestDouble(sent, self.ents)
 
 
 class DocTestDouble:
@@ -18,9 +18,9 @@ class DocTestDouble:
     Test double for spaCy Doc
     """
 
-    def __init__(self, sentence, entities):
-        self.entities = [SpanTestDouble(entity['text'], entity['label_'])
-                         for entity in entities]
+    def __init__(self, sent, ents):
+        self.ents = [SpanTestDouble(ent['text'], ent['label_'])
+                     for ent in ents]
 
     def patch_method(self, attr, return_value):
         def patched(): return return_value
