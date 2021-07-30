@@ -2,9 +2,6 @@ import unittest
 from ner_client import NamedEntityClient
 from test_doubles import NerModelTestDouble
 
-# Assertions
-#  - Location:
-
 
 class TestNerClient(unittest.TestCase):
 
