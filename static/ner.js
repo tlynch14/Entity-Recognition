@@ -1,5 +1,5 @@
 const fetchResult = (sent) => {
-    fetch('http://localhost:5000/ner', {
+    fetch('http://127.0.0.1:5000/ner', {
         method: 'POST',
         headers: new Headers({ 'content-type': 'application/json' }),
         cache: 'no-cache',
